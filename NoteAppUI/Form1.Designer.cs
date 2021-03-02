@@ -34,7 +34,7 @@ namespace NoteAppUI
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(80, 33);
+            this.button1.Location = new System.Drawing.Point(88, 45);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
