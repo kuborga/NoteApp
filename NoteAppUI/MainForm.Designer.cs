@@ -1,7 +1,7 @@
 ﻿
 namespace NoteAppUI
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -48,7 +48,7 @@ namespace NoteAppUI
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Form";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
