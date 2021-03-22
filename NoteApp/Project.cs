@@ -9,7 +9,7 @@ namespace NoteApp
     /// <summary>
     /// Хранит список всех заметок
     /// </summary>
-    class Project
+   public class Project
     {
         /// <summary>
         /// Возвращает список текущих заметок
