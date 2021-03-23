@@ -15,7 +15,6 @@ namespace NoteAppUI
     public partial class MainForm : Form
     {
         Project project = ProjectManager.LoadFromFile(ProjectManager.FileName);
-
         public MainForm()
         {
             InitializeComponent();
