@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
-using System;
-using System.IO;
-using Newtonsoft.Json;
+
 
 namespace NoteApp
 {
@@ -18,7 +16,7 @@ namespace NoteApp
         /// </summary>
         public static readonly string FileName =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-            + "/NoteApp/NoteApp.notes";
+            + @"\Robkanov\NoteApp\NoteApp.txt";
 
         /// <summary>
         /// Сериализация (сохранение файла)
@@ -70,8 +68,8 @@ namespace NoteApp
                 {
                     using (var textReader = new JsonTextReader(reader))
                     {
-                        //Вызывается десериализация и явно
-                        //преобразуется результат в целевой тип данных
+                        //Вызывается десериализация
+                        //и явно преобразуется результат в целевой тип данных
                         project = serializer.Deserialize<Project>(textReader);
 
                         if (project == null)
@@ -88,5 +86,9 @@ namespace NoteApp
 
             return project;
         }
+
+
+
+
     }
 }

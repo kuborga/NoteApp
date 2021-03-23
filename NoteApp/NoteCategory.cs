@@ -17,6 +17,7 @@ namespace NoteApp
         People,
         Documents,
         Finance,
-        Sundry  //(Разное)
+        //(Разное)
+        Other
     }
 }
