@@ -5,22 +5,22 @@ namespace NoteApp
 {
     /// <summary>
     /// Хранит название,категорию и текст заметки,
-    /// время создания и изменения заметки
+    /// время создания и изменения заметки.
     /// </summary>
    public class Note
     {
         /// <summary>
-        /// Название заметки
+        /// Название заметки.
         /// </summary>
         private string _title = "Без названия";
 
         /// <summary>
-        /// Категория заметки
+        /// Категория заметки.
         /// </summary>
         private NoteCategory _category;
 
         /// <summary>
-        /// Текст заметки
+        /// Текст заметки.
         /// </summary>
         private string _text;
 
@@ -30,12 +30,12 @@ namespace NoteApp
         private DateTime _isCreated = DateTime.Now;
 
         /// <summary>
-        /// Время изменения файла
+        /// Время изменения файла.
         /// </summary>
         private DateTime _isChanged;
 
         /// <summary>
-        /// Возвращает или задает название заметки
+        /// Возвращает или задает название заметки.
         /// </summary>
         public string Title
         {
@@ -58,7 +58,7 @@ namespace NoteApp
         }
 
         ///<summary>
-        ///Возвращает или задает категорию заметки
+        ///Возвращает или задает категорию заметки.
         ///</summary>
         public NoteCategory Category
         {
@@ -75,7 +75,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Возвращает или задает текст заметки
+        /// Возвращает или задает текст заметки.
         /// </summary>
         public string Text
         {
@@ -92,7 +92,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Возвращает  время создания заметки
+        /// Возвращает  время создания заметки.
         /// </summary>
         public DateTime IsCreated
         {
@@ -107,7 +107,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Конструктор класса Note
+        /// Конструктор класса Note.
         /// </summary>
         public Note()
         {
@@ -115,7 +115,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Конструктор класса Note для сериализации
+        /// Конструктор класса Note для сериализации.
         /// </summary>
         /// <param name="title">Не более 50 символов</param>
         /// <param name="category"></param>
@@ -133,7 +133,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Возвращает или задает время последнего изменения
+        /// Возвращает или задает время последнего изменения.
         /// </summary>
         public DateTime IsChanged
         {

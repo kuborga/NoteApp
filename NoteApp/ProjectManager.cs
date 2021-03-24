@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 
-
 namespace NoteApp
 {
+    /// <summary>
+    /// Класс менеджер проектов.
+    /// </summary>
     public static class ProjectManager
     {
         /// <summary>
-        /// Название файла для сохранений и загрузки
+        /// Название файла для сохранений и загрузки.
         /// </summary>
         public static readonly string FileName =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             + @"\Robkanov\NoteApp\NoteApp.txt";
 
         /// <summary>
-        /// Сериализация (сохранение файла)
+        /// Сериализация (сохранение файла).
         /// </summary>
         /// <param name="project">сериализуемый объект</param>
         /// <param name="filename">Название файла</param>
@@ -48,7 +50,7 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Десериализация (загрузка файла)
+        /// Десериализация (загрузка файла).
         /// </summary>
         /// <param name="filename">Название файла</param>
         /// <returns></returns>
@@ -86,9 +88,6 @@ namespace NoteApp
 
             return project;
         }
-
-
-
 
     }
 }

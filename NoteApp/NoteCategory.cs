@@ -7,17 +7,43 @@ using System.Threading.Tasks;
 namespace NoteApp
 {
     /// <summary>
-    /// Категория заметок
+    /// Категория заметок.
     /// </summary>
     public enum  NoteCategory
     {
+        /// <summary>
+        /// Работа.
+        /// </summary>
         Job,
+
+        /// <summary>
+        /// Дом.
+        /// </summary>
         Home,
+
+        /// <summary>
+        /// Здоровье и спорт.
+        /// </summary>
         HealthAndSports,
+
+        /// <summary>
+        /// Люди.
+        /// </summary>
         People,
+
+        /// <summary>
+        /// Документы.
+        /// </summary>
         Documents,
+
+        /// <summary>
+        /// Финансы.
+        /// </summary>
         Finance,
-        //(Разное)
+
+        /// <summary>
+        /// Разное.
+        /// </summary>
         Other
     }
 }
