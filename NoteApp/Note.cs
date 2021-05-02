@@ -27,12 +27,12 @@ namespace NoteApp
         /// <summary>
         /// Время создания заметки.По умолчанию(только для чтения).
         /// </summary>
-        private DateTime _isCreated = DateTime.Now;
+        private DateTime _createdDate = DateTime.Now;
 
         /// <summary>
         /// Время изменения файла.
         /// </summary>
-        private DateTime _isChanged;
+        private DateTime _modifiedDate;
 
         /// <summary>
         /// Возвращает или задает название заметки.
@@ -53,7 +53,7 @@ namespace NoteApp
                     _title = value;
                 }
 
-                IsChanged = DateTime.Now;
+                ModifiedDate = DateTime.Now;
             }
         }
 
@@ -70,7 +70,7 @@ namespace NoteApp
             set
             {
                 _category = value;
-                IsChanged = DateTime.Now;
+                ModifiedDate = DateTime.Now;
             }
         }
 
@@ -87,22 +87,22 @@ namespace NoteApp
             set
             {
                 _text = value;
-                IsChanged = DateTime.Now;
+                ModifiedDate = DateTime.Now;
             }
         }
 
         /// <summary>
         /// Возвращает  время создания заметки.
         /// </summary>
-        public DateTime IsCreated
+        public DateTime CreatedDate
         {
             get
             {
-                return  _isCreated;
+                return  _createdDate;
             }
             private set
             { 
-                _isCreated = value;
+                _createdDate = value;
             }
         }
 
@@ -120,31 +120,31 @@ namespace NoteApp
         /// <param name="title">Не более 50 символов</param>
         /// <param name="category"></param>
         /// <param name="text"></param>
-        /// <param name="isCreated"></param>
-        /// <param name="isChanged"></param>
+        /// <param name="createdDate"></param>
+        /// <param name="modifiedDate"></param>
         [JsonConstructor]
-        public Note(string title, NoteCategory category, string text, DateTime isCreated, DateTime isChanged)
+        public Note(string title, NoteCategory category, string text, DateTime createdDate, DateTime modifiedDate)
         {
             Title = title;
             Category = category;
             Text = text;
-            IsCreated = isCreated;
-            IsChanged = isChanged;
+            CreatedDate = createdDate;
+            ModifiedDate = modifiedDate;
         }
 
         /// <summary>
         /// Возвращает или задает время последнего изменения.
         /// </summary>
-        public DateTime IsChanged
+        public DateTime ModifiedDate
         {
             get
             {
-                return _isChanged;
+                return _modifiedDate;
             }
 
             private set
             {
-                _isChanged = value;
+                _modifiedDate = value;
             }
         }
 
@@ -159,7 +159,7 @@ namespace NoteApp
                 Title = this._title,
                 Text = this._text,
                 Category = this._category,
-                IsChanged = this._isChanged
+                ModifiedDate = this._modifiedDate
             };
         }
     }

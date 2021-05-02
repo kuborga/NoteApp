@@ -61,10 +61,10 @@ namespace NoteAppUI
             note.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory), comboBox1.Text);
 
             //Время создания появляется
-            textBox3.Text = note.IsCreated.ToLongTimeString();
+            textBox3.Text = note.CreatedDate.ToLongTimeString();
 
             //Время последнего изменения обновляется
-            textBox4.Text = note.IsChanged.ToLongTimeString();
+            textBox4.Text = note.ModifiedDate.ToLongTimeString();
             project.Notes.Add(note);
             //Сохранение файла
             ProjectManager.SaveToFile(project, ProjectManager.FileName);
@@ -90,8 +90,8 @@ namespace NoteAppUI
 
                 textBox1.Text = note.Title;
                 textBox2.Text = note.Text;
-                textBox3.Text = note.IsCreated.ToLongTimeString();
-                textBox4.Text = note.IsChanged.ToLongTimeString();
+                textBox3.Text = note.CreatedDate.ToLongTimeString();
+                textBox4.Text = note.ModifiedDate.ToLongTimeString();
             }
             catch (Exception exception)
             {
@@ -100,5 +100,9 @@ namespace NoteAppUI
             }
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
