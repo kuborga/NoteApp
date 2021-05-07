@@ -68,6 +68,7 @@ namespace NoteAppUI
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(370, 20);
             this.TitleTextBox.TabIndex = 2;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // CategoryComboBox
             // 
@@ -76,6 +77,7 @@ namespace NoteAppUI
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoryComboBox.TabIndex = 3;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
             // 
             // CreatedLlabel
             // 
@@ -121,6 +123,7 @@ namespace NoteAppUI
             this.MainTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MainTextBox.Size = new System.Drawing.Size(416, 280);
             this.MainTextBox.TabIndex = 8;
+            this.MainTextBox.TextChanged += new System.EventHandler(this.MainTextBox_TextChanged);
             // 
             // OkButton
             // 
@@ -142,6 +145,7 @@ namespace NoteAppUI
             this.CancelButton.TabIndex = 10;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // NoteForm
             // 

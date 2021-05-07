@@ -12,7 +12,7 @@ namespace NoteApp
         /// <summary>
         /// Название файла для сохранений и загрузки.
         /// </summary>
-        public static readonly string FileName =
+        public static  string  FileName { get; private set; } =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             + @"\Robkanov\NoteApp\NoteApp.txt";
 
