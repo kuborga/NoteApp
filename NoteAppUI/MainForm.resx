@@ -120,6 +120,36 @@
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="DeleteNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADMSURBVDhP3ZCxDcIwEEW9AGtQU1K7JjukYAMmYgSyAR2U
+        7AAJKEKxQXJ75Fv5VmwZCC3FU+z4/rPvlHNu0WMGZAKliCgCgdmtlrLfrH2BvTWCPaiqSrTWEW3bRhLF
+        wHY+8xKANQWmsx6EKRxL8IISEgYpup8vIUwBgqnEz8Bca5sKHvbpC8eCvjaSYK8QzrVAyViQEgkAWjkd
+        D9EQKUgJArYA8KMoCumaOro9RxBgkpAM+ANIWPTuC4KAUICib0wSfJL9+wumkhX8hpMX27cfAJ2clIYA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="EditNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADDSURBVDhP1ZDBDcIgFIaZyCGYwMSrUzgEZwdgBVdwBS/M
+        YA+aUGPh+uzf9q+QaoWjL/kCpbyPP0+hRETFGD3AvqrYvD+eBVCyRlZsVjtLwS8umaQ/SF8f1s3hJM45
+        0VovsNbmEmwgYTOSAEiuNy+tf8xQYoyB5D0vStBEwSdJmoSS0dAXJWkKSkIICwFA6ql9rP5gi8NUwtlQ
+        kqZZCKYUwwDxMpu5Fgvws3t20tzbOU21AJcgwTepFqzxB4ISvgrKifICzomJE4ikXAkAAAAASUVORK5C
+        YII=
+</value>
+  </data>
+  <data name="AddNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVDhP7dIxCoAwDIVhD+Xg3KnH8DyeUJ16AxWla+QV
+        UtI0ig5uDj9IYz5FbIgoFWOkB/V8P1cB3dCmcO2cy3nvKYRQIcWyBvb9SAGYxtlEMsCLOswArMtmIq8A
+        ieC8ADi5yPF3kOE8AxKRAD9VdwvIrGV0CWBgLeh+4CsAvycGTzPf4G1E1Jy8STCrShGDPAAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>47</value>
   </metadata>

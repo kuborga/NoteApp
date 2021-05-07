@@ -296,6 +296,14 @@ namespace NoteAppUI
             // Добавить последнюю форму
         }
 
-
+        /// <summary>
+        /// Событие удаляющие заметку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteNoteButton_Click(object sender, EventArgs e)
+        {
+            RemoveNote();
+        }
     }
 }
