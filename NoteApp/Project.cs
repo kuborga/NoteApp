@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NoteApp
 {
@@ -15,5 +12,21 @@ namespace NoteApp
         /// Возвращает список текущих заметок.
         /// </summary>
         public List<Note> Notes { get; private set; } = new List<Note>();
+
+        /// <summary>
+        /// Возвращает или задает индекс последней просматреваемой заметки
+        /// </summary>
+        public int SelectedNoteIndex { get; set; } = -1;
+
+        /// <summary>
+        /// Сортирует список заметок по дате последнего редактирования
+        /// </summary>
+        /// <param name="notes">Список заметок</param>
+        /// <returns>Отсортированный по дате редактирования список заметок</returns>
+        public List<Note> SortNotes(List<Note> notes)
+        {
+            var sortedNotes = notes.OrderByDescending(note => note.ModifiedDate).ToList();
+            return sortedNotes;
+        }
     }
 }

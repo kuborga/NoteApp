@@ -12,12 +12,12 @@ namespace NoteApp
         /// <summary>
         /// Название заметки.
         /// </summary>
-        private string _title = "Без названия";
+        private string _title = "Untitled";
 
         /// <summary>
         /// Категория заметки.
         /// </summary>
-        private NoteCategory _category;
+        private NoteCategory _category = NoteCategory.Other;
 
         /// <summary>
         /// Текст заметки.
@@ -36,6 +36,7 @@ namespace NoteApp
 
         /// <summary>
         /// Возвращает или задает название заметки.
+        /// Имя не больше 50 символов.
         /// </summary>
         public string Title
         {
@@ -45,15 +46,19 @@ namespace NoteApp
             {
                 if (value.Length > 50)
                 {
-                    throw new ArgumentException("Длина названия не должна превышать 50 символов");
+                    throw new ArgumentException
+                        ("Note name is too large: more than 50 characters");
                 }
-
-                if (value != string.Empty)
+                else if (value == "")
+                {
+                    _title = "Untitled";
+                    ModifiedDate = DateTime.Now;
+                }
+                else
                 {
                     _title = value;
+                    ModifiedDate = DateTime.Now;
                 }
-
-                ModifiedDate = DateTime.Now;
             }
         }
 
@@ -66,7 +71,6 @@ namespace NoteApp
             {
                 return _category;
             }
-
             set
             {
                 _category = value;
@@ -83,7 +87,6 @@ namespace NoteApp
             {
                 return _text;
             }
-
             set
             {
                 _text = value;
@@ -141,7 +144,6 @@ namespace NoteApp
             {
                 return _modifiedDate;
             }
-
             private set
             {
                 _modifiedDate = value;
@@ -149,18 +151,12 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// <inheritdoc cref="ICloneable"/>
+        /// Реализация интерфейса IClonable
         /// </summary>
-        /// <returns>Возвращает копию объекта</returns>
+        /// <returns>Клон заметки</returns>
         public object Clone()
         {
-            return new Note()
-            {
-                Title = this._title,
-                Text = this._text,
-                Category = this._category,
-                ModifiedDate = this._modifiedDate
-            };
+            return this.MemberwiseClone();
         }
     }
 
