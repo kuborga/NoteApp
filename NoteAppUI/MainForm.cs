@@ -10,9 +10,14 @@ namespace NoteAppUI
 {
     public partial class MainForm : Form
     {
-
+        /// <summary>
+        /// Класс содержащий список классов Note.
+        /// </summary>
         private Project _project = new Project();
 
+        /// <summary>
+        /// Отсортированный список заметок.
+        /// </summary>
         private List<Note> _viewedNotes = new List<Note>();
 
         public MainForm()
@@ -47,7 +52,6 @@ namespace NoteAppUI
                     (NoteCategory)CategoryComboBox.SelectedItem);
             }
 
-            
             NoteListBox.Items.Clear();
             foreach (Note note in _viewedNotes)
             {
@@ -188,17 +192,32 @@ namespace NoteAppUI
             
         }
 
+        /// <summary>
+        /// Событие вызывающееся при выборе категории в ComboBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshListBox();
             RefreshRightPanel();
         }
 
+        /// <summary>
+        /// Событие проиходящее при изменении NoteListBox.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void NoteListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshRightPanel();
         }
 
+        /// <summary>
+        /// Событие удаляющие заметку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.ToString() == "Delete")
@@ -207,36 +226,71 @@ namespace NoteAppUI
             }
         }
 
+        /// <summary>
+        /// Событие вызывающее окно создания заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNoteButton_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
+        /// <summary>
+        /// Событие вызывающее окно изменения заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
             EditNote();
         }
 
+        /// <summary>
+        /// Событие вызывающее окно создания заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNote();
         }
 
+        /// <summary>
+        /// Событие вызывающее окно изменения заметки.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditNote();
         }
 
+        /// <summary>
+        /// Событие удаляющие заметку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveNote();
         }
 
+        /// <summary>
+        /// Событие вызывающее закрытие приложения.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Событие создания окна About.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Добавить последнюю форму
