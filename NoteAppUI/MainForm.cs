@@ -186,6 +186,7 @@ namespace NoteAppUI
 
                     NoteListBox.SelectedIndex = 0;
 
+                    RefreshListBox();
                     ProjectManager.SaveToFile(_project, ProjectManager.FileName);
                 }
             }
@@ -239,6 +240,7 @@ namespace NoteAppUI
         private void AddNoteButton_Click(object sender, EventArgs e)
         {
             AddNote();
+            
         }
 
         /// <summary>
@@ -249,6 +251,7 @@ namespace NoteAppUI
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
             EditNote();
+           // RefreshListBox();
         }
 
         /// <summary>
