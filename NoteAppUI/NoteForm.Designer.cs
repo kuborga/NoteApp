@@ -64,16 +64,16 @@ namespace NoteAppUI
             // 
             this.TitleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TitleTextBox.Location = new System.Drawing.Point(60, 12);
+            this.TitleTextBox.Location = new System.Drawing.Point(65, 12);
             this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(370, 20);
+            this.TitleTextBox.Size = new System.Drawing.Size(365, 20);
             this.TitleTextBox.TabIndex = 2;
             this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
             // 
             // CategoryComboBox
             // 
             this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(60, 42);
+            this.CategoryComboBox.Location = new System.Drawing.Point(65, 42);
             this.CategoryComboBox.Name = "CategoryComboBox";
             this.CategoryComboBox.Size = new System.Drawing.Size(121, 21);
             this.CategoryComboBox.TabIndex = 3;
@@ -92,7 +92,7 @@ namespace NoteAppUI
             // 
             this.CreatedDateTimePicker.Enabled = false;
             this.CreatedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.CreatedDateTimePicker.Location = new System.Drawing.Point(60, 73);
+            this.CreatedDateTimePicker.Location = new System.Drawing.Point(65, 73);
             this.CreatedDateTimePicker.Name = "CreatedDateTimePicker";
             this.CreatedDateTimePicker.Size = new System.Drawing.Size(92, 20);
             this.CreatedDateTimePicker.TabIndex = 5;
@@ -100,7 +100,7 @@ namespace NoteAppUI
             // ModifiedLabel
             // 
             this.ModifiedLabel.AutoSize = true;
-            this.ModifiedLabel.Location = new System.Drawing.Point(170, 75);
+            this.ModifiedLabel.Location = new System.Drawing.Point(175, 75);
             this.ModifiedLabel.Name = "ModifiedLabel";
             this.ModifiedLabel.Size = new System.Drawing.Size(50, 13);
             this.ModifiedLabel.TabIndex = 6;
@@ -110,7 +110,7 @@ namespace NoteAppUI
             // 
             this.ModifiedDateTimePicker.Enabled = false;
             this.ModifiedDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(220, 73);
+            this.ModifiedDateTimePicker.Location = new System.Drawing.Point(225, 73);
             this.ModifiedDateTimePicker.Name = "ModifiedDateTimePicker";
             this.ModifiedDateTimePicker.Size = new System.Drawing.Size(92, 20);
             this.ModifiedDateTimePicker.TabIndex = 7;
@@ -132,7 +132,7 @@ namespace NoteAppUI
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 23);
             this.OkButton.TabIndex = 9;
-            this.OkButton.Text = "Ok";
+            this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 

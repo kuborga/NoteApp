@@ -165,9 +165,11 @@ namespace NoteAppUI
             // 
             // DeleteNoteButton
             // 
-            this.DeleteNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DeleteNoteButton.BackgroundImage")));
             this.DeleteNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.DeleteNoteButton.FlatAppearance.BorderSize = 0;
+            this.DeleteNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteNoteButton.Location = new System.Drawing.Point(73, 395);
             this.DeleteNoteButton.Name = "DeleteNoteButton";
             this.DeleteNoteButton.Size = new System.Drawing.Size(22, 22);
@@ -177,9 +179,11 @@ namespace NoteAppUI
             // 
             // EditNoteButton
             // 
-            this.EditNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EditNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EditNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("EditNoteButton.BackgroundImage")));
             this.EditNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.EditNoteButton.FlatAppearance.BorderSize = 0;
+            this.EditNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.EditNoteButton.Location = new System.Drawing.Point(43, 395);
             this.EditNoteButton.Name = "EditNoteButton";
             this.EditNoteButton.Size = new System.Drawing.Size(22, 22);
@@ -189,10 +193,12 @@ namespace NoteAppUI
             // 
             // AddNoteButton
             // 
-            this.AddNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddNoteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddNoteButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddNoteButton.BackgroundImage")));
             this.AddNoteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.AddNoteButton.Location = new System.Drawing.Point(13, 395);
+            this.AddNoteButton.FlatAppearance.BorderSize = 0;
+            this.AddNoteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddNoteButton.Location = new System.Drawing.Point(15, 395);
             this.AddNoteButton.Name = "AddNoteButton";
             this.AddNoteButton.Size = new System.Drawing.Size(22, 22);
             this.AddNoteButton.TabIndex = 3;
