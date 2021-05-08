@@ -117,6 +117,9 @@ namespace NoteAppUI
             // 
             // MainTextBox
             // 
+            this.MainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTextBox.Location = new System.Drawing.Point(13, 101);
             this.MainTextBox.Multiline = true;
             this.MainTextBox.Name = "MainTextBox";
@@ -163,6 +166,7 @@ namespace NoteAppUI
             this.Controls.Add(this.TitleTextBox);
             this.Controls.Add(this.CategoryLabel);
             this.Controls.Add(this.TitleLabel);
+            this.MinimumSize = new System.Drawing.Size(460, 455);
             this.Name = "NoteForm";
             this.Text = "Note";
             this.ResumeLayout(false);
