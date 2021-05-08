@@ -13,7 +13,7 @@ namespace NoteAppUI
     public partial class NoteForm : Form
     {
         /// <summary>
-        /// Копия класса Note.
+        /// Копия редактируемого класса <see cref="Note">
         /// </summary>
         private Note _note;
 

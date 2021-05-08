@@ -32,6 +32,11 @@ namespace NoteAppUI
             _project = ProjectManager.LoadFromFile(ProjectManager.FileName);
             RefreshListBox();
 
+            //Выберает последнюю просматреваемую заметку, если таковая существует в списке
+            if (NoteListBox.Items.Count > 0)
+            {
+                NoteListBox.SelectedIndex = _project.SelectedNoteIndex;
+            }
         }
 
         /// <summary>

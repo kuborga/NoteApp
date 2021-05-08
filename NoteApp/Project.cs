@@ -14,6 +14,11 @@ namespace NoteApp
         public List<Note> Notes { get; set; } = new List<Note>();
 
         /// <summary>
+        /// Возвращает или задает индекс последней просматреваемой заметки
+        /// </summary>
+        public int SelectedNoteIndex { get; set; } = -1;
+
+        /// <summary>
         /// Сортирует список заметок по дате последнего редактирования
         /// </summary>
         /// <param name="notes">Список заметок</param>
