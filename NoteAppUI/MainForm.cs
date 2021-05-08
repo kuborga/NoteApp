@@ -69,7 +69,7 @@ namespace NoteAppUI
         /// Обновляет отображение правой панели главной формы.
         /// Выводит название, текст, категорию и даты выбранной заметки
         /// </summary>
-        public void RefreshRightPanel()
+        public void RefreshCurrentNote()
         {
             var selected = NoteListBox.SelectedIndex;
             if (selected == -1)
@@ -113,6 +113,7 @@ namespace NoteAppUI
 
                 NoteListBox.SelectedIndex = 0;
 
+                RefreshListBox();
                 ProjectManager.SaveToFile(_project, ProjectManager.FileName);
             }
         }
@@ -192,12 +193,6 @@ namespace NoteAppUI
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-            
-        }
-
         /// <summary>
         /// Событие вызывающееся при выборе категории в ComboBox.
         /// </summary>
@@ -206,7 +201,7 @@ namespace NoteAppUI
         private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshListBox();
-            RefreshRightPanel();
+            RefreshCurrentNote();
         }
 
         /// <summary>
@@ -216,7 +211,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void NoteListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshRightPanel();
+            RefreshCurrentNote();
         }
 
         /// <summary>

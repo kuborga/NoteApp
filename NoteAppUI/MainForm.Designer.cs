@@ -326,7 +326,6 @@ namespace NoteAppUI
             this.MinimumSize = new System.Drawing.Size(816, 488);
             this.Name = "MainForm";
             this.Text = "NoteApp";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
