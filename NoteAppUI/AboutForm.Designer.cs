@@ -85,6 +85,7 @@ namespace NoteAppUI
             this.EmaleLinkLabel.TabIndex = 5;
             this.EmaleLinkLabel.TabStop = true;
             this.EmaleLinkLabel.Text = "Robkanov@mail.ru";
+            this.EmaleLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.EmaleLinkLabel_LinkClicked);
             // 
             // GitHubLabel
             // 
@@ -104,12 +105,13 @@ namespace NoteAppUI
             this.GitHubLinkLabel.TabIndex = 7;
             this.GitHubLinkLabel.TabStop = true;
             this.GitHubLinkLabel.Text = "kuborga/NoteApp";
+            this.GitHubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GitHubLinkLabel_LinkClicked);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 280);
+            this.label1.Location = new System.Drawing.Point(13, 244);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 13);
             this.label1.TabIndex = 8;
@@ -120,7 +122,6 @@ namespace NoteAppUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 302);
-            this.ControlBox = false;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GitHubLinkLabel);
             this.Controls.Add(this.GitHubLabel);
