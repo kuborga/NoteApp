@@ -32,7 +32,7 @@ namespace NoteAppUI
             _project = ProjectManager.LoadFromFile(ProjectManager.FileName);
             RefreshListBox();
 
-            //Выберает последнюю просматреваемую заметку, если таковая существует в списке
+            //Выбирает последнюю просматреваемую заметку, если таковая существует в списке
             if (NoteListBox.Items.Count > 0)
             {
                 NoteListBox.SelectedIndex = _project.SelectedNoteIndex;
@@ -63,6 +63,10 @@ namespace NoteAppUI
                 NoteListBox.Items.Add(note.Title);
             }
 
+            if (NoteListBox.Items.Count > 0)
+            {
+                NoteListBox.SelectedIndex = 0;
+            }
         }
 
         /// <summary>
@@ -75,7 +79,7 @@ namespace NoteAppUI
             if (selected == -1)
             {
                 TextBox.Text = "";
-                NoteTitleLabel.Text = "Title";
+                NoteTitleLabel.Text = "No title";
                 NoteCategoryLabel.Text = "none";
                 CreatedDateTimePicker.Value = DateTime.Now;
                 ModifiedDateTimePicker.Value = DateTime.Now;
@@ -235,7 +239,8 @@ namespace NoteAppUI
         private void AddNoteButton_Click(object sender, EventArgs e)
         {
             AddNote();
-            
+            RefreshListBox();
+            RefreshCurrentNote();
         }
 
         /// <summary>
@@ -246,7 +251,8 @@ namespace NoteAppUI
         private void EditNoteButton_Click(object sender, EventArgs e)
         {
             EditNote();
-           // RefreshListBox();
+            RefreshListBox();
+            RefreshCurrentNote();
         }
 
         /// <summary>
@@ -257,6 +263,8 @@ namespace NoteAppUI
         private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNote();
+            RefreshListBox();
+            RefreshCurrentNote();
         }
 
         /// <summary>
@@ -267,6 +275,8 @@ namespace NoteAppUI
         private void editNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditNote();
+            RefreshListBox();
+            RefreshCurrentNote();
         }
 
         /// <summary>
@@ -296,7 +306,8 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Добавить последнюю форму
+            var aboutForm = new AboutForm();
+            aboutForm.Show();
         }
 
         /// <summary>
@@ -307,6 +318,17 @@ namespace NoteAppUI
         private void DeleteNoteButton_Click(object sender, EventArgs e)
         {
             RemoveNote();
+        }
+
+        /// <summary>
+        /// Событие аварийного завершения работы программы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _project.SelectedNoteIndex = NoteListBox.SelectedIndex;
+            ProjectManager.SaveToFile(_project, ProjectManager.FileName);
         }
     }
 }
