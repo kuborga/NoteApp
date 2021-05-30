@@ -25,16 +25,6 @@ namespace NoteApp
         private string _text;
 
         /// <summary>
-        /// Время создания заметки.По умолчанию(только для чтения).
-        /// </summary>
-        private DateTime _createdDate = DateTime.Now;
-
-        /// <summary>
-        /// Время изменения файла.
-        /// </summary>
-        private DateTime _modifiedDate;
-
-        /// <summary>
         /// Возвращает или задает название заметки.
         /// Имя не больше 50 символов.
         /// </summary>
@@ -97,17 +87,7 @@ namespace NoteApp
         /// <summary>
         /// Возвращает  время создания заметки.
         /// </summary>
-        public DateTime CreatedDate
-        {
-            get
-            {
-                return  _createdDate;
-            }
-            private set
-            { 
-                _createdDate = value;
-            }
-        }
+        public DateTime CreatedDate { get; private set; } = DateTime.Now;
 
         /// <summary>
         /// Конструктор класса Note.
@@ -138,17 +118,8 @@ namespace NoteApp
         /// <summary>
         /// Возвращает или задает время последнего изменения.
         /// </summary>
-        public DateTime ModifiedDate
-        {
-            get
-            {
-                return _modifiedDate;
-            }
-            private set
-            {
-                _modifiedDate = value;
-            }
-        }
+        public DateTime ModifiedDate { get; private set; } = DateTime.Now;
+        
 
         /// <summary>
         /// Реализация интерфейса IClonable
