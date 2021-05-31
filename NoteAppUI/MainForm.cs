@@ -29,7 +29,7 @@ namespace NoteAppUI
             CategoryComboBox.Items.AddRange(categories);
             CategoryComboBox.SelectedItem = "All";
 
-            _project = ProjectManager.LoadFromFile(ProjectManager.FileName);
+            _project = ProjectManager.LoadFromFile(ProjectManager.DefaultPath);
             RefreshListBox();
 
             //Выбирает последнюю просматреваемую заметку, если таковая существует в списке
@@ -118,7 +118,7 @@ namespace NoteAppUI
                 NoteListBox.SelectedIndex = 0;
 
                 RefreshListBox();
-                ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+                ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
             }
         }
 
@@ -152,7 +152,7 @@ namespace NoteAppUI
                         NoteListBox.SelectedIndex = 0;
                     }
 
-                    ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+                    ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
                 }
             }
         }
@@ -192,7 +192,7 @@ namespace NoteAppUI
                     NoteListBox.SelectedIndex = 0;
 
                     RefreshListBox();
-                    ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+                    ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
                 }
             }
         }
@@ -328,7 +328,7 @@ namespace NoteAppUI
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             _project.SelectedNoteIndex = NoteListBox.SelectedIndex;
-            ProjectManager.SaveToFile(_project, ProjectManager.FileName);
+            ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
     }
 }

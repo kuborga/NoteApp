@@ -10,9 +10,9 @@ namespace NoteApp
     public static class ProjectManager
     {
         /// <summary>
-        /// Название файла для сохранений и загрузки.
+        /// Возвращает путь по умолчанию
         /// </summary>
-        public static  string  FileName { get; private set; } =
+        public static  string  DefaultPath { get; private set; } =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             + @"\Robkanov\NoteApp\NoteApp.notes";
 
@@ -21,27 +21,20 @@ namespace NoteApp
         /// </summary>
         /// <param name="project">сериализуемый объект</param>
         /// <param name="filename">Название файла</param>
-        public static void SaveToFile(Project project, string filename)
+        public static void SaveToFile(Project project, string fileName)
         {
-            //Создается экземпляр сериализатора
-            var serializer = new JsonSerializer();
-
-            if (!Directory.Exists(Path.GetDirectoryName(filename)))
+            //Если папка отсутствует - создать
+            var folder = Path.GetDirectoryName(fileName);
+            if (!Directory.Exists(folder))
             {
-                var path = Path.GetDirectoryName(filename) ??
-                           throw new InvalidOperationException();
-                Directory.CreateDirectory(path);
+                Directory.CreateDirectory(folder);
             }
-
-            //Открывается поток для записи в файл с указанием пути
-            using (var writer = new StreamWriter(filename))
+            //Сериализовать
+            var serializer = new JsonSerializer();
+            using (var sw = new StreamWriter(fileName))
+            using (var writer = new JsonTextWriter(sw))
             {
-                using (var textWriter = new JsonTextWriter(writer))
-                {
-                    //Вызывается сериализация и передается файл, 
-                    //который нужно сериализовать
-                    serializer.Serialize(textWriter, project);
-                }
+                serializer.Serialize(writer, project);
             }
         }
 
@@ -52,38 +45,31 @@ namespace NoteApp
         /// <returns></returns>
         public static Project LoadFromFile(string filename)
         {
-            //Создается переменная, которая будет хранить
-            //результат десериализации
-            Project project;
-
+            var readProject = new Project();
+            //Загрузить файл, если найден.
+            // В противном случае вернуть пустой проект
             if (File.Exists(filename))
             {
-                //Создается экземпляр сериализатора
-                var serializer = new JsonSerializer();
-
-                //Открывается поток для чтения из файла с указанием пути
-                using (var reader = new StreamReader(filename))
+                //Если файл поврежден,то возвращает пустой проект
+                try
                 {
-                    using (var textReader = new JsonTextReader(reader))
-                    {
-                        //Вызывается десериализация
-                        //и явно преобразуется результат в целевой тип данных
-                        project = serializer.Deserialize<Project>(textReader);
-
-                        if (project == null)
-                        {
-                            return new Project();
-                        }
-                    }
+                    var serializer = new JsonSerializer();
+                    using (var sr = new StreamReader(filename))
+                    using (var reader = new JsonTextReader(sr))
+                    readProject = (Project)serializer.Deserialize<Project>(reader);
+                }
+                catch
+                {
+                    return new Project();
+                }
+                if (readProject != null)
+                {
+                    return readProject;
                 }
             }
-            else
-            {
-                return new Project();
-            }
-
-            return project;
+            return new Project();
         }
-
     }
+
+    
 }

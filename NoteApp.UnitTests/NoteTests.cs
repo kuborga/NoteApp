@@ -6,131 +6,225 @@ namespace NoteApp.UnitTests
     [TestFixture]
     public class NoteTests
     {
+
         /// <summary>
-        /// Экземпляр класса <see cref="Note"/> для проведения тестов
+        /// Переменная, хранящая время создания заметки
         /// </summary>
-        private Note _note;
+        private readonly DateTime _createdDate = new DateTime(2021, 05, 31, 12, 00, 00);
 
-        [SetUp]
-        public void Note_Initi()
+        /// <summary>
+        /// Переменная, хранящая время изменения заметки
+        /// </summary>
+        private readonly DateTime _modifiedDate = new DateTime(2021, 05, 31, 12, 05, 00);
+
+        /// <summary>
+        /// Метод создает один экземпляр заметки
+        /// </summary>
+        public Note GetOriginalNote()
         {
-            _note = new Note();
+            var originalNote = new Note
+            {
+                Title = "Заметка №1 для теста",
+                Category = NoteCategory.Home,
+                Text = "Какой-то текст заметки",
+                CreatedDate = _createdDate,
+                ModifiedDate = _modifiedDate
+            };
+
+            return originalNote;
         }
 
-        [Test(Description = "Позитивный тест сеттера и геттера Title")]
-        public void Title_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Позитивный тест геттера Title")]
+        public void Title_GetCorrectValue()
         {
             //Setup
-            var expected = "Test title for note";
+            var originalNote = GetOriginalNote();
+            var expected = "Заметка №1 для теста";
 
             //Act
-            _note.Title = expected;
-            var actual = _note.Title;
-            
-            //Assert
-            Assert.AreEqual(actual, expected,
-                "Геттер или сеттер Title возвращает неправильный объект");
-        }
-
-        [Test(Description = "Присвоение слишком большого значения Title: " +
-          "больше 50 символов")]
-        public void Title_TooLongTitle_ThrowsException()
-        {
-            //Setup - инициализация заметки вынесена в атрибут [SetUp]
-
-            //Act
-            var wrongTitle = "Title2021Title2021Title2021Title2021Title2021Title2021Title2021Title2021Title2021";
+            var actual = originalNote.Title;
 
             //Assert
-            Assert.Throws<ArgumentException>(
-                () => { _note.Title = wrongTitle; },
-                    "Должно возникать исключение, если название длиннее 50 символов");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Тест сеттера Title c пустым значением")]
-        public void Title_EmptyString_ReturnsUntitled()
+        [Test(Description = "Позитивный тест сеттера Title")]
+        public void Title_SetCorrectValue()
         {
             //Setup
+            var originalNote = GetOriginalNote();
+            var expected = originalNote.Title;
+
+            //Act
+            originalNote.Title = expected;
+            var actual = originalNote.Title;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test(Description = "Тест сеттера Title с пустым значением")]
+        public void Title_SetEmptyValue()
+        {
+            //Setup
+            var originalNote = GetOriginalNote();
             var expected = "Untitled";
 
             //Act
-            _note.Title = "";
-            var actual = _note.Title;
+            originalNote.Title = "";
+            var actual = originalNote.Title;
 
             //Assert
-            Assert.AreEqual(actual, expected,
-                "Сеттер устанавливает неправильное название заметки");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Позитивный тест геттера и сеттера Category")]
-        public void Category_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Тест сеттера Title с длиной значения" +
+                           "поля, превышающего 50 символов")]
+        public void Title_SetTooLongValue()
         {
-            //Setup - инициализация заметки вынесена в атрибут [SetUp]
+            //Setup
+            var originalNote = GetOriginalNote();
+            var source = "Какой-то текст заметки" +
+                         "Какой-то текст заметки" +
+                         "Какой-то текст заметки";
+
+            //Assert
+            Assert.Throws<ArgumentException>(
+                () =>
+                {
+                    // Act
+                    originalNote.Title = source;
+                });
+        }
+
+        [Test(Description = "Тест геттера Category")]
+        public void Category_GetCorrectCategory()
+        {
+            //Setup
+            var originalNote = GetOriginalNote();
             var expected = NoteCategory.Home;
 
             //Act
-            _note.Category = expected;
-            var actual = _note.Category;
+            var actual = originalNote.Category;
 
             //Assert
-            Assert.AreEqual(expected, actual,
-                "Геттер или сеттер Category возвращает неправильный объект");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Позитивный тест геттера и сеттера Text")]
-        public void Text_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Тест сеттера Category")]
+        public void Category_SetCorrectValue()
         {
             //Setup
-            var expected = "Notes #1";
+            var originalNote = GetOriginalNote();
+            var expected = originalNote.Category;
 
             //Act
-            _note.Text = expected;
-            var actual = _note.Text;
+            originalNote.Category = expected;
+            var actual = originalNote.Category;
 
             //Assert
-            Assert.AreEqual(expected, actual,
-                "Геттер или сеттер Text возвращает неправильный объект");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Позитивный тест геттера и сеттера Created")]
-        public void Created_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Тест геттера Text")]
+        public void Text_GetCorrectText()
         {
             //Setup
-            var expected = DateTime.Now;
+            var originalNote = GetOriginalNote();
+            var expected = "Какой-то текст заметки";
 
             //Act
-            var actual = _note.CreatedDate;
+            var actual = originalNote.Text;
 
             //Assert
-            Assert.AreEqual(expected.Minute, actual.Minute,
-                "Геттер Created возвращает неправильный объект");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Позитивный тест геттера и сеттера Modified")]
-        public void Modified_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Тест сеттера Text")]
+        public void Text_SetCorrectValue()
         {
-            //Setup - инициализация заметки вынесена в атрибут [SetUp]
-            var expected = DateTime.Now;
+            //Setup
+            var originalNote = GetOriginalNote();
+            var expected = originalNote.Text;
 
             //Act
-            var actual = _note.ModifiedDate;
+            originalNote.Text = expected;
+            var actual = originalNote.Text;
 
             //Assert
-            Assert.AreEqual(expected.Minute, actual.Minute,
-                "Геттер Modified возвращает неправильный объект");
+            Assert.AreEqual(expected, actual);
         }
 
-        [Test(Description = "Позитивный тест  конструктора класса Note")]
-        public void NoteConstructor_CorrectValue_ResultCorrectionValue()
+        [Test(Description = "Тест геттера CreatedDate")]
+        public void IsCreated_GetCorrectCreatedTime()
         {
-            //Setup - инициализация заметки вынесена в атрибут [SetUp]
+            //Setup
+            var originalNote = GetOriginalNote();
+            var expected = _createdDate;
+
+            //Act
+            var actual = originalNote.CreatedDate;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test(Description = "Тест сеттера CreatedDate")]
+        public void IsCreated_SetCorrectCreatedTime()
+        {
+            //Setup
+            var originalNote = GetOriginalNote();
+            var expected = originalNote.CreatedDate;
+
+            //Act
+            originalNote.CreatedDate = expected;
+            var actual = originalNote.CreatedDate;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test(Description = "Тест геттера ModifiedDate")]
+        public void IsChanged_GetCorrectChangedTime()
+        {
+            //Setup
+            var originalNote = GetOriginalNote();
+            var expected = _modifiedDate;
+
+            //Act
+            var actual = originalNote.ModifiedDate;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test(Description = "Тест сеттера ModifiedDate")]
+        public void IsChanged_SetCorrectChangedTime()
+        {
+            //Setup
+            var originalNote = GetOriginalNote();
+            var expected = originalNote.ModifiedDate;
+
+            //Act
+            originalNote.ModifiedDate = expected;
+            var actual = originalNote.ModifiedDate;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test(Description = "Позитивный тест стандартного конструктора класса Note")]
+        public void NoteConstructor_CorrectValue_ReturnsSameValue()
+        {
+            //Setup
             var expectedTitle = "Untitled";
             string expectedText = null;
             var expectedCategory = NoteCategory.Other;
             var expectedCreated = DateTime.Now;
             var expectedModified = DateTime.Now;
 
-            //Act - стандартный конструктор вызывается в атрибуте [SetUp]
+            Note _note = new Note();
+            //Act
             var actual = _note;
 
             //Assert
@@ -150,10 +244,10 @@ namespace NoteApp.UnitTests
         [Test(Description = "Позитивный тест Json конструктора класса Note")]
         public void NoteJsoneConstructor_CorrectValue_ReturnsSameValue()
         {
-            //Setup - инициализация заметки вынесена в атрибут [SetUp]
-            var expectedTitle = "TestTitle1";
-            var expectedText = "TestTextText";
-            var expectedCategory = NoteCategory.Home;
+            //Setup 
+            var expectedTitle = "TestTitle";
+            var expectedText = "TestText";
+            var expectedCategory = NoteCategory.Finance;
             var expectedCreated = DateTime.Now;
             var expectedModified = DateTime.Now;
 
@@ -175,9 +269,27 @@ namespace NoteApp.UnitTests
                  "последнего редактирования заметки");
         }
 
+        [Test(Description = "Позитивный тест метода Clone")]
+        public void Clone_CorrectValue_ReturnsSameValue()
+        {
+            Note _note = new Note();
+            //Setup 
+            Note expected = _note;
 
+            //Act
+            var actual = (Note)_note.Clone();
 
-
-
+            //Assert
+            Assert.AreEqual(expected.Title, actual.Title, "Метод Clone устанавливает " +
+            "неправильное значение Title");
+            Assert.AreEqual(expected.Text, actual.Text, "Метод Clone устанавливает " +
+           "неправильное значение Text");
+            Assert.AreEqual(expected.Category, actual.Category, "Метод Clone устанавливает " +
+           "неправильное значение Category");
+            Assert.AreEqual(expected.CreatedDate, actual.CreatedDate, "Метод Clone устанавливает " +
+           "неправильное значение Created");
+            Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate, "Метод Clone устанавливает " +
+           "неправильное значение Modified");
+        }
     }
 }
