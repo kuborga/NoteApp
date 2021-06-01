@@ -20,22 +20,34 @@ namespace NoteApp.UnitTests
         /// </summary>
         private Project _project;
 
-        [SetUp]
-        public void Project_Init()
+        /// <summary>
+        /// Вспомогательный метод создания пустого проекта
+        /// </summary>
+        public Project Project_Init()
+        {
+            _project = new Project();
+            return _project;
+        }
+
+        /// <summary>
+        /// Вспомогательный метод создания пустой заметки
+        /// </summary>
+        public Note Note_Init()
         {
             _note = new Note();
-            _project = new Project();
+            return _note;
         }
 
         [Test(Description = "Позитивный тест геттера и сеттера Notes")]
         public void Notes_CorrectValue_ReturnsSameValue()
         {
             //Setup
-            var expected = _note;
+            var expected = Note_Init();
+            var project = Project_Init();
 
             //Act
-            _project.Notes.Add(_note);
-            var actual = _project.Notes[0];
+            project.Notes.Add(_note);
+            var actual = project.Notes[0];
 
             //Assert
             Assert.AreEqual(expected, actual,
@@ -48,11 +60,12 @@ namespace NoteApp.UnitTests
         public void SelectedNoteIndex_CorrectValue_ReturnsSameValue()
         {
             //Setup
+            var project = Project_Init();
             var expected = 20;
 
             //Act
-            _project.SelectedNoteIndex = 20;
-            var actual = _project.SelectedNoteIndex;
+            project.SelectedNoteIndex = 20;
+            var actual = project.SelectedNoteIndex;
 
             //Assert
             Assert.AreEqual(expected, actual,
@@ -65,9 +78,10 @@ namespace NoteApp.UnitTests
         public void Sort_CorrectValue_ReturnsSortedList()
         {
             //Setup
-            InsertNote("FirstNote", _project, NoteCategory.Other);
-            InsertNote("SecondNote", _project, NoteCategory.Other);
-            InsertNote("ThirdNote", _project, NoteCategory.Other);
+            var project = Project_Init();
+            InsertNote("FirstNote", project, NoteCategory.Other);
+            InsertNote("SecondNote", project, NoteCategory.Other);
+            InsertNote("ThirdNote", project, NoteCategory.Other);
 
             var secondProject = new Project();
             InsertNote("ThirdNote", secondProject, NoteCategory.Other);
@@ -76,7 +90,7 @@ namespace NoteApp.UnitTests
             var expected = secondProject.Notes;
 
             //Act
-            var actual = _project.SortNotes(_project.Notes);
+            var actual = project.SortNotes(project.Notes);
 
             //Assert
             for (int i = 0; i < 3; i++)
@@ -92,9 +106,10 @@ namespace NoteApp.UnitTests
         public void CategorySort_CorrectValue_ReturnsSortedList()
         {
             //Setup
-            InsertNote("FirstNote", _project, NoteCategory.Documents);
-            InsertNote("SecondNote", _project, NoteCategory.Job);
-            InsertNote("ThirdNote", _project, NoteCategory.Documents);
+            var project = Project_Init();
+            InsertNote("FirstNote", project, NoteCategory.Documents);
+            InsertNote("SecondNote", project, NoteCategory.Job);
+            InsertNote("ThirdNote", project, NoteCategory.Documents);
 
             var secondProject = new Project();
             InsertNote("ThirdNote", secondProject, NoteCategory.Documents);
@@ -102,8 +117,8 @@ namespace NoteApp.UnitTests
             var expected = secondProject.Notes;
 
             //Act
-            _project.Notes = _project.SortNotes(_project.Notes, NoteCategory.Documents);
-            var actual = _project.Notes;
+            project.Notes = project.SortNotes(project.Notes, NoteCategory.Documents);
+            var actual = project.Notes;
 
             //Assert
             for (int i = 0; i < 2; i++)

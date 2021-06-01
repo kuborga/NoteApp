@@ -21,11 +21,7 @@ namespace NoteApp.UnitTests
         /// <summary>
         /// Путь к директории с тестовыми файлами
         /// </summary>
-        ///  private static string _currentPath = Path.GetFullPath
-        ///     (Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\"))
-        ///    + "TestData\\";
         private static string _currentPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
 
         /// <summary>
         /// Путь к корректному файлу
@@ -47,12 +43,16 @@ namespace NoteApp.UnitTests
         /// </summary>
         private string _damagedFilePath = _currentPath + @"\TestData\DamagedFile.notes";
 
-        [SetUp]
-        public void Project_Init()
+        /// <summary>
+        /// Вспомогательный метод создания заметки
+        /// с пользовательским временем создания и редактирования
+        /// </summary>
+        public Project Project_Init()
         {
             _note = new Note(new DateTime(2021, 01, 01));
             _project = new Project();
             _project.Notes.Add(_note);
+            return _project;
         }
 
         [Test(Description = "Позитивный тест геттера Notes")]
@@ -74,11 +74,12 @@ namespace NoteApp.UnitTests
         [Test(Description = "Позитивный тест сериализации")]
         public void SaveToFile_CorrectValue_ReturnsSameValue()
         {
-            //Setup - инициализация проекта вынесена в атрибут [SetUp]
+            //Setup
+            var project = Project_Init();
             var expected = File.ReadAllText(_correctFilePath);
 
             //Act
-            ProjectManager.SaveToFile(_project, _saveFilePath);
+            ProjectManager.SaveToFile(project, _saveFilePath);
             var actual = File.ReadAllText(_saveFilePath);
 
             //Assert
@@ -89,8 +90,9 @@ namespace NoteApp.UnitTests
         [Test(Description = "Позитивный тест десериализации - папка существует")]
         public void LoadFromFile_CorrectValue_ReturnsSameValue()
         {
-            //Setup - инициализация проекта вынесена в атрибут [SetUp]
-            var expected = _project;
+            //Setup
+            var project = Project_Init();
+            var expected = project;
 
             //Act
             var actual = ProjectManager.LoadFromFile(_correctFilePath);
@@ -113,7 +115,7 @@ namespace NoteApp.UnitTests
         [Test(Description = "Негативный тест десериализации - папки не существует")]
         public void LoadFromFile_UncorrectPath_ReturnsNewProject()
         {
-            //Setup - инициализация проекта вынесена в атрибут [SetUp]
+            //Setup
             var expected = new Project();
 
             //Act
