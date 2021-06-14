@@ -138,7 +138,7 @@ namespace NoteApp
         /// <returns>Клон заметки</returns>
         public object Clone()
         {
-            return this.MemberwiseClone();
+           return this.MemberwiseClone();
         }
     }
 

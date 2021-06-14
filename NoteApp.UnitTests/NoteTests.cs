@@ -12,7 +12,7 @@ namespace NoteApp.UnitTests
         private Note _note;
 
         /// <summary>
-        /// Вспомогательный метод создания пустой заметки
+        /// Метод создания пустой заметки
         /// </summary>
         public Note Note_Init()
         {
@@ -142,11 +142,13 @@ namespace NoteApp.UnitTests
             var expectedCreated = DateTime.Now;
             var expectedModified = DateTime.Now;
 
-            //Act - стандартный конструктор вызывается в атрибуте [SetUp]
+            //Act
             var actual = note;
 
             //Assert
-            Assert.AreEqual(expectedTitle, actual.Title,
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(expectedTitle, actual.Title,
                 "Стандартный конструктор возвращает неправильное имя заметки");
             Assert.AreEqual(expectedText, actual.Text,
                 "Стандартный конструктор возвращает неправильный текст заметки");
@@ -157,6 +159,7 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(expectedModified.Minute, actual.ModifiedDate.Minute,
                 "Стандартный конструктор возвращает неправильное время" +
                  "последнего редактирования заметки");
+            });
         }
 
         [Test(Description = "Позитивный тест Json конструктора класса Note")]
@@ -170,22 +173,26 @@ namespace NoteApp.UnitTests
             var expectedCreated = DateTime.Now;
             var expectedModified = DateTime.Now;
 
+
             //Act
             var actual = new Note(expectedTitle, expectedCategory, expectedText,
             expectedCreated, expectedModified);
 
             //Assert
-            Assert.AreEqual(expectedTitle, actual.Title,
-                "Json конструктор возвращает неправильное имя заметки");
-            Assert.AreEqual(expectedText, actual.Text,
-                "Json конструктор возвращает неправильный текст заметки");
-            Assert.AreEqual(expectedCategory, actual.Category,
-                "Json конструктор возвращает неправильную категорию заметки");
-            Assert.AreEqual(expectedCreated.Minute, actual.CreatedDate.Minute,
-                "Json конструктор возвращает неправильное время создания заметки");
-            Assert.AreEqual(expectedModified.Minute, actual.ModifiedDate.Minute,
-                "Json конструктор возвращает неправильное время" +
-                 "последнего редактирования заметки");
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(expectedTitle, actual.Title,
+                    "Json конструктор возвращает неправильное имя заметки");
+                Assert.AreEqual(expectedText, actual.Text,
+                    "Json конструктор возвращает неправильный текст заметки");
+                Assert.AreEqual(expectedCategory, actual.Category,
+                    "Json конструктор возвращает неправильную категорию заметки");
+                Assert.AreEqual(expectedCreated.Minute, actual.CreatedDate.Minute,
+                    "Json конструктор возвращает неправильное время создания заметки");
+                Assert.AreEqual(expectedModified.Minute, actual.ModifiedDate.Minute,
+                    "Json конструктор возвращает неправильное время" +
+                     "последнего редактирования заметки");
+            });
         }
 
         [Test(Description = "Позитивный тест конструктора с пользовательким значением времени")]
@@ -202,7 +209,9 @@ namespace NoteApp.UnitTests
             var actual = new Note(new DateTime(2021, 01, 01));
 
             //Assert
-            Assert.AreEqual(expectedTitle, actual.Title,
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(expectedTitle, actual.Title,
                 "Стандартный конструктор возвращает неправильное имя заметки");
             Assert.AreEqual(expectedText, actual.Text,
                 "Стандартный конструктор возвращает неправильный текст заметки");
@@ -213,6 +222,7 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(expectedModified.Minute, actual.ModifiedDate.Minute,
                 "Стандартный конструктор возвращает неправильное время" +
                  "последнего редактирования заметки");
+             });
         }
 
         [Test(Description = "Позитивный тест метода Clone")]
@@ -226,18 +236,23 @@ namespace NoteApp.UnitTests
             var actual = (Note)note.Clone();
 
             //Assert
-            Assert.AreEqual(expected.Title, actual.Title, "Метод Clone устанавливает " +
-            "неправильное значение Title");
-            Assert.AreEqual(expected.Text, actual.Text, "Метод Clone устанавливает " +
-           "неправильное значение Text");
-            Assert.AreEqual(expected.Category, actual.Category, "Метод Clone устанавливает " +
-           "неправильное значение Category");
-            Assert.AreEqual(expected.CreatedDate, actual.CreatedDate, "Метод Clone устанавливает " +
-           "неправильное значение Created");
-            Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate, "Метод Clone устанавливает " +
-           " неправильное значение Modified");
+            Assert.Multiple(() =>
+            {
+                 Assert.AreEqual(expected.Title, actual.Title, "Метод Clone устанавливает " +
+                 "неправильное значение Title");
+                 Assert.AreEqual(expected.Text, actual.Text, "Метод Clone устанавливает " +
+                "неправильное значение Text");
+                 Assert.AreEqual(expected.Category, actual.Category, "Метод Clone устанавливает " +
+                "неправильное значение Category");
+                 Assert.AreEqual(expected.CreatedDate, actual.CreatedDate, "Метод Clone устанавливает " +
+                "неправильное значение Created");
+                 Assert.AreEqual(expected.ModifiedDate, actual.ModifiedDate, "Метод Clone устанавливает " +
+                " неправильное значение Modified");
+            });
+
+
         }
 
 
-    }
+}
 }

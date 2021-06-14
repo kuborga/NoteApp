@@ -58,7 +58,7 @@ namespace NoteApp.UnitTests
         [Test(Description = "Позитивный тест геттера Notes")]
         public void DefaultPath_CorrectValue_ReturnsSameValue()
         {
-            //Setup - инициализация проекта вынесена в атрибут [SetUp]
+            //Setup
             var expected = Environment.GetFolderPath
                (Environment.SpecialFolder.ApplicationData)
                + @"\Robkanov\NoteApp\NoteApp.notes";
@@ -91,25 +91,13 @@ namespace NoteApp.UnitTests
         public void LoadFromFile_CorrectValue_ReturnsSameValue()
         {
             //Setup
-            var project = Project_Init();
-            var expected = project;
+            var expectedProject = Project_Init();
 
             //Act
-            var actual = ProjectManager.LoadFromFile(_correctFilePath);
+            var actualProject = ProjectManager.LoadFromFile(_correctFilePath);
 
-            //Assert
-            Assert.AreEqual(expected.SelectedNoteIndex, actual.SelectedNoteIndex,
-                "Метод LoadFromFile возвращает неправильный проект");
-            Assert.AreEqual(expected.Notes[0].Title, actual.Notes[0].Title,
-                "Метод LoadFromFile возвращает неправильный проект");
-            Assert.AreEqual(expected.Notes[0].Text, actual.Notes[0].Text,
-                "Метод LoadFromFile возвращает неправильный проект");
-            Assert.AreEqual(expected.Notes[0].Category, actual.Notes[0].Category,
-                "Метод LoadFromFile возвращает неправильный проект");
-            Assert.AreEqual(expected.Notes[0].CreatedDate, actual.Notes[0].CreatedDate,
-                "Метод LoadFromFile возвращает неправильный проект");
-            Assert.AreEqual(expected.Notes[0].ModifiedDate, actual.Notes[0].ModifiedDate,
-                "Метод LoadFromFile возвращает неправильный проект");
+            // Assert
+            Assert.AreEqual(expectedProject.Notes.Count, actualProject.Notes.Count);
         }
 
         [Test(Description = "Негативный тест десериализации - папки не существует")]
