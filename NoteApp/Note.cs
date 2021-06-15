@@ -121,18 +121,6 @@ namespace NoteApp
         }
 
         /// <summary>
-        /// Конструктор с пользовательскими значениями 
-        /// даты создания и последнего редактирования.
-        ///  Используется только для проведения тестов.
-        /// </summary>
-        /// <param name="testTime">Время создания</param>
-        public Note(DateTime testTime)
-        {
-            CreatedDate = testTime;
-            ModifiedDate = testTime;
-        }
-
-        /// <summary>
         /// Реализация интерфейса IClonable
         /// </summary>
         /// <returns>Клон заметки</returns>

@@ -49,7 +49,8 @@ namespace NoteApp.UnitTests
         /// </summary>
         public Project Project_Init()
         {
-            _note = new Note(new DateTime(2021, 01, 01));
+            _note = new Note("Untitled",NoteCategory.Other, null, 
+                DateTime.Parse("2021/01/01"), DateTime.Parse("2021/01/01"));
             _project = new Project();
             _project.Notes.Add(_note);
             return _project;
