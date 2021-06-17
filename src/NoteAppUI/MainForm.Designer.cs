@@ -217,6 +217,7 @@ namespace NoteAppUI
             this.NoteListBox.Size = new System.Drawing.Size(257, 355);
             this.NoteListBox.TabIndex = 2;
             this.NoteListBox.SelectedIndexChanged += new System.EventHandler(this.NoteListBox_SelectedIndexChanged);
+            this.NoteListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteListBox_KeyDown);
             // 
             // CategoryComboBox
             // 

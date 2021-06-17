@@ -330,5 +330,18 @@ namespace NoteAppUI
             _project.SelectedNoteIndex = NoteListBox.SelectedIndex;
             ProjectManager.SaveToFile(_project, ProjectManager.DefaultPath);
         }
+
+        /// <summary>
+        /// Событие удаляющие заметку.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NoteListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                RemoveNote();
+            }
+        }
     }
 }
