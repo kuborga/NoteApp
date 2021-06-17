@@ -33,7 +33,7 @@ namespace NoteAppUI
             RefreshListBox();
 
             //Выбирает последнюю просматреваемую заметку, если таковая существует в списке
-            if (NoteListBox.Items.Count > 0)
+            if (_viewedNotes.Count != 0)
             {
                 NoteListBox.SelectedIndex = _project.SelectedNoteIndex;
             }
@@ -225,7 +225,7 @@ namespace NoteAppUI
         /// <param name="e"></param>
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode.ToString() == "Delete")
+            if (e.KeyData == Keys.Delete)
             {
                 RemoveNote();
             }
