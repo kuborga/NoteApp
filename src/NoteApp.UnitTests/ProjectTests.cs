@@ -21,7 +21,7 @@ namespace NoteApp.UnitTests
         private Project _project;
 
         /// <summary>
-        /// Вспомогательный метод создания пустого проекта
+        /// Метод создания пустого проекта
         /// </summary>
         public Project Project_Init()
         {
@@ -30,7 +30,7 @@ namespace NoteApp.UnitTests
         }
 
         /// <summary>
-        /// Вспомогательный метод создания пустой заметки
+        /// Метод создания пустой заметки
         /// </summary>
         public Note Note_Init()
         {

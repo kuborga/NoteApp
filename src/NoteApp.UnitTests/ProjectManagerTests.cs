@@ -44,7 +44,7 @@ namespace NoteApp.UnitTests
         private string _damagedFilePath = _currentPath + @"\TestData\DamagedFile.notes";
 
         /// <summary>
-        /// Вспомогательный метод создания заметки
+        /// Метод создания заметки
         /// с пользовательским временем создания и редактирования
         /// </summary>
         public Project Project_Init()
@@ -114,7 +114,8 @@ namespace NoteApp.UnitTests
             Assert.AreEqual(expected.Notes, actual.Notes,
                 "Метод LoadFromFile возвращает неправильный проект");
             Assert.AreEqual(expected.SelectedNoteIndex, actual.SelectedNoteIndex,
-                "Метод LoadFromFile возвращает неправильный проект");
+                "Метод LoadFromFile возвращает неправильный " +
+                "индекс последней просмтариеваемой заметки");
         }
 
         [Test(Description = "Тест десериализации если файл повреждён")]
