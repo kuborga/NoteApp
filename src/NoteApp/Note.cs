@@ -41,7 +41,6 @@ namespace NoteApp
         public string Title
         {
             get => _title;
-
             set
             {
                 if (value.Length > 50)

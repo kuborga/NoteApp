@@ -31,7 +31,7 @@ namespace NoteAppUI
             {
                 _note = (Note)value.Clone();
 
-                if (_note.Text == null)
+                if (_note.Title == null)
                 {
                     TitleTextBox.Text = "Untitled";
                     _note.Title = TitleTextBox.Text;
