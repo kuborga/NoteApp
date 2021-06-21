@@ -124,7 +124,7 @@
   <data name="DeleteNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAADMSURBVDhP3ZCxDcIwEEW9AGtQU1K7JjukYAMmYgSyAR2U
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAADMSURBVDhP3ZCxDcIwEEW9AGtQU1K7JjukYAMmYgSyAR2U
         7AAJKEKxQXJ75Fv5VmwZCC3FU+z4/rPvlHNu0WMGZAKliCgCgdmtlrLfrH2BvTWCPaiqSrTWEW3bRhLF
         wHY+8xKANQWmsx6EKRxL8IISEgYpup8vIUwBgqnEz8Bca5sKHvbpC8eCvjaSYK8QzrVAyViQEgkAWjkd
         D9EQKUgJArYA8KMoCumaOro9RxBgkpAM+ANIWPTuC4KAUICib0wSfJL9+wumkhX8hpMX27cfAJ2clIYA
@@ -134,7 +134,7 @@
   <data name="EditNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAADDSURBVDhP1ZDBDcIgFIaZyCGYwMSrUzgEZwdgBVdwBS/M
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAADDSURBVDhP1ZDBDcIgFIaZyCGYwMSrUzgEZwdgBVdwBS/M
         YA+aUGPh+uzf9q+QaoWjL/kCpbyPP0+hRETFGD3AvqrYvD+eBVCyRlZsVjtLwS8umaQ/SF8f1s3hJM45
         0VovsNbmEmwgYTOSAEiuNy+tf8xQYoyB5D0vStBEwSdJmoSS0dAXJWkKSkIICwFA6ql9rP5gi8NUwtlQ
         kqZZCKYUwwDxMpu5Fgvws3t20tzbOU21AJcgwTepFqzxB4ISvgrKifICzomJE4ikXAkAAAAASUVORK5C
@@ -144,7 +144,7 @@
   <data name="AddNoteButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAACJSURBVDhP7dIxCoAwDIVhD+Xg3KnH8DyeUJ16AxWla+QV
+        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAACJSURBVDhP7dIxCoAwDIVhD+Xg3KnH8DyeUJ16AxWla+QV
         UtI0ig5uDj9IYz5FbIgoFWOkB/V8P1cB3dCmcO2cy3nvKYRQIcWyBvb9SAGYxtlEMsCLOswArMtmIq8A
         ieC8ADi5yPF3kOE8AxKRAD9VdwvIrGV0CWBgLeh+4CsAvycGTzPf4G1E1Jy8STCrShGDPAAAAABJRU5E
         rkJggg==

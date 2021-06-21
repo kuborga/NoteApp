@@ -217,7 +217,6 @@ namespace NoteAppUI
             this.NoteListBox.Size = new System.Drawing.Size(257, 355);
             this.NoteListBox.TabIndex = 2;
             this.NoteListBox.SelectedIndexChanged += new System.EventHandler(this.NoteListBox_SelectedIndexChanged);
-            this.NoteListBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteListBox_KeyDown);
             // 
             // CategoryComboBox
             // 
@@ -324,6 +323,7 @@ namespace NoteAppUI
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(816, 488);
             this.Name = "MainForm";
