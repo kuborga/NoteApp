@@ -182,9 +182,11 @@ namespace NoteAppUI
                     var realIndex = _project.Notes.IndexOf(_viewedNotes[selected]);
                     _project.Notes.RemoveAt(realIndex);
                     _project.Notes.Insert(0, note);
+
                     //Заменяет заметку в отображаемом списке
                     _viewedNotes.RemoveAt(selected);
                     _viewedNotes.Insert(0, note);
+                    
                     //Заменяет заметку в ListBox
                     NoteListBox.Items.RemoveAt(selected);
                     NoteListBox.Items.Insert(0, note.Title);

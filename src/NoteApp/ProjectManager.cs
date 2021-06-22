@@ -46,10 +46,12 @@ namespace NoteApp
         public static Project LoadFromFile(string filename)
         {
             var readProject = new Project();
+
             //Загрузить файл, если найден.
             // В противном случае вернуть пустой проект
             if (File.Exists(filename))
             {
+
                 //Если файл поврежден,то возвращает пустой проект
                 try
                 {
