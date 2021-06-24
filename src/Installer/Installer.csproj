@@ -50,6 +50,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>"$(SolutionDir)packages\Tools.InnoSetup.6.1.2\tools\ISCC.exe" "$(SolutionDir)InstallScripts\installer.iss"
-rd "$(SolutionDir)InstallScripts\Release"</PostBuildEvent>
+rd "$(SolutionDir)InstallScripts\Release"
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
